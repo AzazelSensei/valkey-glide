@@ -15,6 +15,7 @@
 
 ### Changes
 
+* Java: Add `GlideCredentialProvider` support to `IamAuthConfig`. When set, the Rust core calls back into Java to retrieve AWS credentials (via the new `AwsCredentials` builder, which supports optional expiry) for each IAM token signing operation. When not set, the default AWS credential chain is used — fully backwards compatible. ([#6825](https://github.com/valkey-io/valkey-glide/pull/6825))
 * Java: Add `GlideString.asReadOnlyByteBuffer()` for zero-copy, read-only access to binary payloads  ([#6600](https://github.com/valkey-io/valkey-glide/issues/6600))
 * Core: Zero-copy receive path for GET/MGET ([#6559](https://github.com/valkey-io/valkey-glide/pull/6559))
 * Go: Expose `inflightRequestsLimit` configuration via `WithInflightRequestsLimit`, bringing the Go client to parity with Java, Python, and Node ([#6385](https://github.com/valkey-io/valkey-glide/issues/6385))
